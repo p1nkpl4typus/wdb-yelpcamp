@@ -21,8 +21,10 @@ var commentRoutes           = require("./routes/comments"),
 // seed Database    
 // seedDB();
 
-// mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb://maindb:corona@ds221228.mlab.com:21228/yelpcamp-pp");
+console.log(process.env.DATABASEURL);
+
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://maindb:corona@ds221228.mlab.com:21228/yelpcamp-pp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
